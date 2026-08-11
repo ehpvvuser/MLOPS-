@@ -13,7 +13,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 sh 'docker rm -f mlops-container || true'
-                sh 'docker run -d -p 5000:5000 --name mlops-container mlops-app'
+                sh 'docker run -d --network host --name mlops-container mlops-app''
             }
         }
 
